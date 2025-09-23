@@ -38,4 +38,13 @@ export const API_PATHS = {
         GET_ALL_APPLICATION: (id) => `/api/applications/job/${id}`,
         UPDATE_STATUS: (id) => `/api/applications/${id}/status`,
     },
+
+    RESUME: {
+        CREATE: "/api/resume",
+        GET_ALL: "/api/resume",
+        GET_BY_ID: (id) => `/api/resume/${id}`,
+        UPDATE: (id) => `/api/resume/${id}`,
+        DELETE: (id) => `/api/resume/${id}` ,
+        UPLOAD_IMAGES: (id) => `/api/resume/${id}/upload-images`,
+    },
 };

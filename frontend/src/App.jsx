@@ -8,7 +8,6 @@ import { Toaster } from "react-hot-toast";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.jsx";
 import SignUp from "./pages/Auth/SignUp.jsx";
 import Login from "./pages/Auth/Login.jsx";
-import JobSeekerDashboard from "./pages/JobSeeker/JobSeekerDashboard.jsx";
 import JobDetails from "./pages/JobSeeker/JobDetails.jsx";
 import SavedJobs from "./pages/JobSeeker/SavedJobs.jsx";
 import UserProfile from "./pages/JobSeeker/UserProfile.jsx";
@@ -19,6 +18,9 @@ import ApplicationViewer from "./pages/Employer/ApplicationViewer.jsx";
 import EmployerProfilePage from "./pages/Employer/EmployerProfilePage.jsx";
 import ProtectedRoute from "./routes/ProtectedRoute.jsx";
 import LandingPage from "./pages/LandingPage/LandingPage.jsx";
+import FindJobPage from "./pages/JobSeeker/FindJob.jsx";
+import Dashboard from './pages/ResumeBuilder/DashBoard.jsx'
+import EditResume from "./pages/ResumeBuilder/EditResume.jsx";
 import { useThemeStore } from "./utils/useTheme.js";
 import { AuthProvider } from "./context/AuthContext.jsx";
 
@@ -34,10 +36,12 @@ const App = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={< Login />} />
 
-            <Route path="/find-jobs" element={<JobSeekerDashboard />} />
+            <Route path="/find-jobs" element={<FindJobPage />} />
             <Route path="/job/:jobId" element={<JobDetails />} />
             <Route path="/saved-jobs" element={<SavedJobs />} />
             <Route path="/profile" element={<UserProfile />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/resume/:resumeId" element={<EditResume />} />
 
             {/* Protected */}
             <Route element={<ProtectedRoute requiredRole="employer" />}>

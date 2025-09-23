@@ -13,7 +13,6 @@ const Navbar = () => {
     const navigate = useNavigate();
     const [ProfileDropdownOpen, setProfileDropdownOpen] = useState(false);
 
-    //Close dropdowns when clicking outside
     useEffect(() => {
         const handleClickOutside = () => {
             if(ProfileDropdownOpen) {
@@ -32,7 +31,7 @@ const Navbar = () => {
                 <div className="w-8 h-8 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
                     <Briefcase className="w-5 h-5 text-white" />
                 </div>
-                <span className="test-lg font-bold text-gray-900">JobPortal</span>
+                <span className="test-lg font-bold text-gray-900">CarrerConnect</span>
                 </Link>
 
                 {/* Auth Buttons */}

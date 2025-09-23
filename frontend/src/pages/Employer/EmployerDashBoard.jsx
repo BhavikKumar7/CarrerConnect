@@ -16,7 +16,7 @@ import JobDashboardCard from "../../components/Cards/JobDashboardCard.jsx";
 import moment from "moment";
 import ApplicationDashboardCard from "../../components/Cards/ApplicationDashboardCard.jsx";
 
-const Card = ({title, headerAction, subTitle, className, children }) => {
+const Card = ({ title, headerAction, subTitle, className, children }) => {
   return <div
     className={`bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200 ${className}`}
   >
@@ -174,10 +174,13 @@ const EmployerDashBoard = () => {
                   ?.slice(0, 3)
                   ?.map((job, index) => (
                     <ApplicationDashboardCard
-                      key={index} 
-                      applicant={data?.applicant || ""}
-                      position={data?.job?.title || ""}
-                      time={moment(data?.updatedAt).fromNow()}
+                      key={index}
+                      applicant={{
+                        name: job?.applicant?.name || "Unknown",
+                        avatar: job?.applicant?.avatar || "",
+                      }}
+                      position={job?.job?.title || ""}
+                      time={moment(job?.updatedAt).fromNow()}
                     />
                   ))}
               </div>

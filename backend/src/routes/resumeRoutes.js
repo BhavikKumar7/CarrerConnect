@@ -1,22 +1,22 @@
-import express from 'express';
+import express from "express";
 import {
-    createResume,
-    getUserResumes,
-    getResumeById,
-    updateResume,
-    deleteResume,
-} from "../controllers/resumeController";
-import { protect } from "../middleware/authMiddleware";
-import { uploadResumeImages } from "../controllers/uploadImages";
+  createResume,
+  getUserResumes,
+  getResumeById,
+  updateResume,
+  deleteResume,
+} from "../controllers/resumeController.js";
+import { protect } from "../middleware/authMiddleware.js";
+import { uploadResumeImages } from "../controllers/uploadImages.js";
 
 const router = express.Router();
 
-router.post("/", protect, createResume); //Create Resume
-router.get("/", protect, getUserResumes); //get resume
-router.get("/:id", protect, getResumeById); //get resume by id
-router.put("/:id/upload-images", protect, uploadResumeImages);
-router.delete("/:id", protect, deleteResume); // delete resume
-router.put("/:id", protect, updateResume); // update resume
-
+// Resume routes
+router.post("/", protect, createResume); // Create Resume
+router.get("/", protect, getUserResumes); // Get all resumes of user
+router.get("/:id", protect, getResumeById); // Get resume by ID
+router.put("/:id/upload-images", protect, uploadResumeImages); // Upload resume images
+router.put("/:id", protect, updateResume); // Update resume
+router.delete("/:id", protect, deleteResume); // Delete resume
 
 export default router;

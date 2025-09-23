@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import Resume from "../models/Resume.js";
-import upload from "../middleware/uploadMiddleware.js";
+import { upload } from "../middleware/uploadMiddleware.js";
 
 // Recreate __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);

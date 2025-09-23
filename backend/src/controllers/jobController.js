@@ -65,7 +65,7 @@ export const getJobs = async (req, res) => {
             const savedJobs = await SavedJob.find({ jobseeker: userId }).select("job");
             savedJobIds = savedJobs.map((s) => String(s.job));
 
-            const applications = await Application.find({ applicant: userId }).select("job Status");
+            const applications = await Application.find({ applicant: userId }).select("job status");
             applications.forEach((app) => {
                 appliedJobStatusMap[String(app.job)] = app.status;
             });

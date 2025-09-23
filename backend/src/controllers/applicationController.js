@@ -44,18 +44,20 @@ export const getApplicantsForJob = async (req, res) => {
     try {
         const job = await Job.findById(req.params.jobId);
 
-        if(!job || job.company.toString() !== req.user._id.toString()){
+        if (!job || job.company.toString() !== req.user._id.toString()) {
             return res.status(403).json({ message: "Not Authorized to view applicants" });
         }
 
         const applications = await Application.find({ job: req.params.jobId })
-            .populate("job", "title location category type");
+            .populate("job", "title location category type")
+            .populate("applicant", "name email avatar resume"); // <-- populate applicant here
         
         res.json(applications);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
 };
+
 
 export const getApplicationById = async (req, res) => {
     try {

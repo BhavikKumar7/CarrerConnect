@@ -1,5 +1,3 @@
-import React from 'react'
-
 const StatusBadge = ({status}) => {
     const statusConfig = {
         Applied: "bg-gray-100 text-gray-800",
