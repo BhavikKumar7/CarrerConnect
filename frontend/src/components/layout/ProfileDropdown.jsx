@@ -6,6 +6,7 @@ const ProfileDropdown = ({
   onToggle,
   avatar,
   companyName,
+  userRole,
   email,
   onLogout,
 }) => {
