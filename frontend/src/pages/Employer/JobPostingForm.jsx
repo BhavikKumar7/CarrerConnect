@@ -307,7 +307,7 @@ const JobPostingForm = () => {
               {/* salary range */}
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">
-                  Salary Range <span className="text-red-500">*</span>
+                  Salary Range<span className="text-red-500">*</span>
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   <div className="relative">

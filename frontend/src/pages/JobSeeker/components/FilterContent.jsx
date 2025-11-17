@@ -57,14 +57,6 @@ const FilterContent = ({
         </FilterSection>
 
         <FilterSection
-            title="Salary Range"
-            isExpanded={expandedSections.salary}
-            onToggle={() => toggleSection("salary")}
-        >
-            <SalaryRangeSlider filters={filters} handleFilterChange={handleFilterChange} />
-        </FilterSection>
-
-        <FilterSection
             title="Category"
             isExpanded={expandedSections?.categories}
             onToggle={() => toggleSection("categories")}
@@ -82,6 +74,14 @@ const FilterContent = ({
                     </label>
                 ))}
             </div>
+        </FilterSection>
+
+        <FilterSection
+            title="Salary Range"
+            isExpanded={expandedSections.salary}
+            onToggle={() => toggleSection("salary")}
+        >
+            <SalaryRangeSlider filters={filters} handleFilterChange={handleFilterChange} />
         </FilterSection>
     </>
 }
