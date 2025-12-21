@@ -97,33 +97,7 @@ router.get("/job/:jobId", protect, cacheJobApplicants, async (req, res) => {
 router.get("/:id", protect, getApplicationById);
 
 router.put("/:id/status", protect, async (req, res, next) => {
-    let { jobId } = req.body;
-
-    if (!jobId) {
-        const application = await Application.findById(req.params.id);
-
-        if (!application) {
-            return res.status(404).json({ message: "Application not found" });
-        }
-
-        jobId =
-            application.jobId ||
-            application.job ||
-            application.job_id ||
-            application.jobID ||
-            application.job_id_ref ||
-            null;
-
-        if (!jobId) {
-            return res.status(400).json({
-                message: "Cannot detect jobId from application document",
-            });
-        }
-    }
-
-    jobId = jobId.toString();
-
-    await invalidateApplicationCache(req.user.id, jobId);
+    await invalidateApplicationCache(req.user.id, req.params.jobId);
     next();
 }, updateStatus);
 
